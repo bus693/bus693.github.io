@@ -12,6 +12,10 @@
   flex-direction: column;
 }
 
+.logoEmoji {
+  font-size: 60%;
+}
+
 .profileNameSeparator {
   display: none;
 }
