@@ -1,0 +1,217 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BusDash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  href="/balatro.ttf"
+  as="font"
+  crossorigin=""
+  type="font/ttf"
+/>
+<script src="index.js" defer></script>
+<link href="index.css" rel="stylesheet" />
+</head>
+<body>
+<div class="bodyContainer">
+  <div class="header bar">
+    <div class="headerLeft">
+      <span id="profileName">Example (upload profile.jkr below)</span>
+      <span class="profileNameSeparator"> - </span>
+      <span id="today" class="sub"></span>
+      <span class="profileNameSeparator"> - </span>
+      <span class="sub"> Gold Stake Win Rates </span>
+    </div>
+    <div class="logo"><a href="https://www.busdash.fyi">BusDash.fyi</a></div>
+  </div>
+  <div id="content" hidden></div>
+  <div class="winPanel">
+    <div class="grid">
+      <div class="cardCard deck-red">
+        <div class="card" style="background-position: 0% 0%"></div>
+        <div class="rank-silver stats">
+          <div class="deckPercent">43%</div>
+          <div class="deckWins">25W</div>
+          <div class="deckRatio" hidden>25/58</div>
+        </div>
+      </div>
+      <div class="cardCard deck-blue">
+        <div class="card" style="background-position: 0% -200%"></div>
+        <div class="rank-diamond stats">
+          <div class="deckPercent">83%</div>
+          <div class="deckWins">80W</div>
+          <div class="deckRatio" hidden>80/96</div>
+        </div>
+      </div>
+      <div class="cardCard deck-yellow">
+        <div class="card" style="background-position: -100% -200%"></div>
+        <div class="rank-gold stats">
+          <div class="deckPercent">72%</div>
+          <div class="deckWins">61W</div>
+          <div class="deckRatio" hidden>61/84</div>
+        </div>
+      </div>
+      <div class="cardCard deck-green">
+        <div class="card" style="background-position: -200% -200%"></div>
+        <div class="rank-silver stats">
+          <div class="deckPercent">28%</div>
+          <div class="deckWins">25W</div>
+          <div class="deckRatio" hidden>25/89</div>
+        </div>
+      </div>
+      <div class="cardCard deck-black">
+        <div class="card" style="background-position: -300% -200%"></div>
+        <div class="rank-bronze stats">
+          <div class="deckPercent">11%</div>
+          <div class="deckWins">6W</div>
+          <div class="deckRatio" hidden>6/54</div>
+        </div>
+      </div>
+      <div class="cardCard deck-magic">
+        <div class="card" style="background-position: 0% -300%"></div>
+        <div class="rank-silver stats">
+          <div class="deckPercent">47%</div>
+          <div class="deckWins">43W</div>
+          <div class="deckRatio" hidden>43/91</div>
+        </div>
+      </div>
+      <div class="cardCard deck-nebula">
+        <div class="card" style="background-position: -300% 0%"></div>
+        <div class="rank-unplayed stats">
+          <div class="deckPercent">-</div>
+          <div class="deckWins">0W</div>
+          <div class="deckRatio" hidden>0/0</div>
+        </div>
+      </div>
+      <div class="cardCard deck-ghost">
+        <div class="card" style="background-position: -600% -200%"></div>
+        <div class="rank-silver stats">
+          <div class="deckPercent">43%</div>
+          <div class="deckWins">22W</div>
+          <div class="deckRatio" hidden>22/51</div>
+        </div>
+      </div>
+      <div class="cardCard deck-abandoned">
+        <div class="card" style="background-position: -300% -300%"></div>
+        <div class="rank-gold stats">
+          <div class="deckPercent">64%</div>
+          <div class="deckWins">46W</div>
+          <div class="deckRatio" hidden>46/71</div>
+        </div>
+      </div>
+      <div class="cardCard deck-checkered">
+        <div class="card" style="background-position: -100% -300%"></div>
+        <div class="rank-unplayed stats">
+          <div class="deckPercent">-</div>
+          <div class="deckWins">0W</div>
+          <div class="deckRatio" hidden>0/0</div>
+        </div>
+      </div>
+      <div class="cardCard deck-zodiac">
+        <div class="card" style="background-position: -300% -400%"></div>
+        <div class="rank-gold stats">
+          <div class="deckPercent">59%</div>
+          <div class="deckWins">29W</div>
+          <div class="deckRatio" hidden>29/49</div>
+        </div>
+      </div>
+      <div class="cardCard deck-painted">
+        <div class="card" style="background-position: -400% -300%"></div>
+        <div class="rank-silver stats">
+          <div class="deckPercent">35%</div>
+          <div class="deckWins">33W</div>
+          <div class="deckRatio" hidden>33/94</div>
+        </div>
+      </div>
+      <div class="cardCard deck-anaglyph">
+        <div class="card" style="background-position: -200% -400%"></div>
+        <div class="rank-silver stats">
+          <div class="deckPercent">42%</div>
+          <div class="deckWins">37W</div>
+          <div class="deckRatio" hidden>37/88</div>
+        </div>
+      </div>
+      <div class="cardCard deck-plasma">
+        <div class="card" style="background-position: -400% -200%"></div>
+        <div class="rank-bronze stats">
+          <div class="deckPercent">19%</div>
+          <div class="deckWins">11W</div>
+          <div class="deckRatio" hidden>11/57</div>
+        </div>
+      </div>
+      <div class="cardCard deck-erratic">
+        <div class="card" style="background-position: -200% -300%"></div>
+        <div class="rank-silver stats">
+          <div class="deckPercent">38%</div>
+          <div class="deckWins">21W</div>
+          <div class="deckRatio" hidden>21/55</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="settingsBar bar">
+    <div>Settings</div>
+  </div>
+  <div class="settings">
+    <div class="filepicker">
+      <fieldset>
+        <legend>Upload profile.jkr</legend>
+        <!-- Support data.bin file. TODO: add user facing message -->
+        <input type="file" id="profilejkr" name="profilejkr" accept=".jkr, .bin" />
+      </fieldset>
+    </div>
+    <div class="options">
+      <fieldset id="displayOptions">
+        <legend>Display Options</legend>
+
+        <div>
+          <input type="radio" id="clean" name="display" value="clean" />
+          <label for="clean">Clean</label>
+        </div>
+
+        <div>
+          <input type="radio" id="wins" name="display" value="wins" checked />
+          <label for="wins">Wins</label>
+        </div>
+
+        <div>
+          <input type="radio" id="ratio" name="display" value="ratio" />
+          <label for="ratio">Ratio</label>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <div class="rankBar bar">
+    <div>
+      Ranks
+    </div>
+  </div>
+  <div class="rankExplanation sub">
+    <p>
+      Ranks are a fun, unofficial way to see your deck results at a glance. You can rank up by playing more games or improving your win percent.
+    </p>
+    <div class="rankTable">
+      <div class="rankTableBadge rank-bronze">Bronze</div>
+      <div class="rankExplain">Play at least <span class="rankThresholdNumber">1</span> game.</div>
+      <div class="rankTableBadge rank-silver">Silver</div>
+      <div class="rankExplain">Play at least <span class="rankThresholdNumber">10</span> games and win at least <span class="rankThresholdNumber">25%</span> of them.</div>
+      <div class="rankTableBadge rank-gold">Gold</div>
+      <div class="rankExplain">Play at least <span class="rankThresholdNumber">25</span> games and win at least <span class="rankThresholdNumber">50%</span> of them.</div>
+      <div class="rankTableBadge rank-diamond">Diamond</div>
+      <div class="rankExplain">Play at least <span class="rankThresholdNumber">50</span> games and win at least <span class="rankThresholdNumber">75%</span> of them.</div>
+    </div>
+    
+  </div>
+  <div class="creditsBar bar">
+    <div>
+      Credits
+    </div>
+  </div>
+  <div class="credits sub">
+    <p>Fansite made with love by <span class="contributor">Bus693</class>.</p>
+    <p>Copyright stuff <a href="/COPYRIGHT.md">here</a>.</p>
+  </div>
+</div>
+</body>
