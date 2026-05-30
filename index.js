@@ -57,11 +57,11 @@ function getDeckStats(deckUsage) {
     let rank;
     if (goldGames === 0) {
       rank = "unplayed";
-    } else if (goldGames >= 50 && percent > 0.75) {
+    } else if (goldGames >= 50 && percent >= 0.75) {
       rank = "diamond";
-    } else if (goldGames >= 25 && percent > 0.5) {
+    } else if (goldGames >= 25 && percent >= 0.5) {
       rank = "gold";
-    } else if (goldGames >= 10 && percent > 0.25) {
+    } else if (goldGames >= 10 && percent >= 0.25) {
       rank = "silver";
     } else {
       rank = "bronze";
