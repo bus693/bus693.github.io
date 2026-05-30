@@ -1,4 +1,4 @@
-import {rawToJSON} from './lib/balatro-save-loader/loading.js';
+import { rawToJSON } from './lib/balatro-save-loader/loading.js';
 
 function getCount(n) {
   if (n === undefined) {
