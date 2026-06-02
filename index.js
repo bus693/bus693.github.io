@@ -43,10 +43,306 @@ async function updateImageDisplay() {
 }
 
 function initImageDisplay() {
-  const jkr = localStorage.getItem("profilejkr") === null ? undefined : JSON.parse(localStorage.getItem("profilejkr"));
-  if (jkr === undefined) {
-    return;
-  }
+  const defaultJkr = {
+    name: "Example (upload profile.jkr below)",
+    deck_usage: {
+      "b_red": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 25
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 33
+        }
+      },
+      "b_blue": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 80
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 16
+        }
+      },
+      "b_yellow": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 61
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 23
+        }
+      },
+      "b_green": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 25
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 64
+        }
+      },
+      "b_black": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 6
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 48
+        }
+      },
+      "b_magic": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 43
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 48
+        }
+      },
+      "b_ghost": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 22
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 29
+        }
+      },
+      "b_abandoned": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 46
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 25
+        }
+      },
+      "b_checkered": {
+        "wins": {
+          "NOSTRING_1": 1,
+        },
+        "losses": {
+          "NOSTRING_1": 3,
+        }
+      },
+      "b_zodiac": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 29
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 20
+        }
+      },
+      "b_painted": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 33
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 61
+        }
+      },
+      "b_anaglyph": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 37
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 51
+        }
+      },
+      "b_plasma": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 11
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 46
+        }
+      },
+      "b_erratic": {
+        "wins": {
+          "NOSTRING_1": 1,
+          "NOSTRING_2": 1,
+          "NOSTRING_3": 1,
+          "NOSTRING_4": 1,
+          "NOSTRING_5": 1,
+          "NOSTRING_6": 1,
+          "NOSTRING_7": 1,
+          "NOSTRING_8": 21
+        },
+        "losses": {
+          "NOSTRING_1": 0,
+          "NOSTRING_2": 0,
+          "NOSTRING_3": 0,
+          "NOSTRING_4": 0,
+          "NOSTRING_5": 0,
+          "NOSTRING_6": 0,
+          "NOSTRING_7": 0,
+          "NOSTRING_8": 34
+        }
+      },
+    }
+  };
+  const jkr = localStorage.getItem("profilejkr") === null ? defaultJkr : JSON.parse(localStorage.getItem("profilejkr"));
   _updateImageDisplay(jkr.name, jkr.deck_usage);
 }
 
@@ -150,6 +446,25 @@ function setDisplayOption(event) {
     );
   }
 }
+
+const resetButton = document.getElementById("resetButton");
+const confirmResetButton = document.getElementById("confirmResetButton");
+const resetButtonFacade = document.getElementById("resetButtonFacade");
+const confirmResetButtonFacade = document.getElementById("confirmResetButtonFacade");
+resetButton.addEventListener("click", () => {
+  resetButton.hidden = true;
+  resetButtonFacade.hidden = true;
+  confirmResetButton.hidden = false;
+  confirmResetButtonFacade.hidden = false;
+});
+confirmResetButton.addEventListener("click", () => {
+  localStorage.removeItem("profilejkr");
+  initImageDisplay();
+  resetButton.hidden = false;
+  resetButtonFacade.hidden = false;
+  confirmResetButton.hidden = true;
+  confirmResetButtonFacade.hidden = true;
+});
 
 document.getElementById("today").innerHTML =
   `${new Date().toLocaleDateString("en-CA")}`;

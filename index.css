@@ -260,8 +260,17 @@ fieldset {
   transform: translate(0, -20px);
 }
 
-.uploadButton {
-  margin: 10px 0;
+.profileActionPanel {
+  display: flex;
+  align-items: center;
+}
+
+.uploadButton, .resetButton {
+  margin-top: 10px;
+}
+
+.resetButton {
+  margin-left: 10px;
 }
 
 legend {
@@ -279,25 +288,36 @@ legend {
   }
 }
 
-input[type="file"] {
+input[type="file"], input[type="button"] {
   display: none;
 }
 
-.primaryButton {
-  cursor: pointer;
-  display: block;
-  background-color: #277047;
+.primaryButton, .dangerButton {
   border-radius: 5px;
   box-shadow: 0px 2px 1px 0px #000000;
+  cursor: pointer;
+  display: block;
   padding: 10px;
+}
+
+.primaryButton {
+  background-color: #277047;
 }
 
 .primaryButton:hover {
   background-color: #1b4e36;
 }
 
-.uploadButtonContainer {
-  display: flex;
+.dangerButton {
+  background-color: #bc2223;
+}
+
+.dangerButton:hover {
+  background-color: #8d1719;
+}
+
+label[hidden] {
+  display: none;
 }
 
 .rankTableBadge {

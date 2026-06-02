@@ -173,17 +173,19 @@
   </div>
   <div class="settings">
     <div class="filepicker">
-      <fieldset>
-        <legend>Upload profile.jkr <a class="tooltip" href="#profileLocationBar">[?]</a></legend>
+      <fieldset class="profileActionPanel">
+        <legend>profile.jkr <a class="tooltip" href="#profileLocationBar">[?]</a></legend>
         <!-- Support data.bin file. TODO: add user facing message -->
-        <div class="uploadButtonContainer">
-          <div>
-            <label for="profilejkr" class="uploadButton primaryButton">
-               Upload
-            </label>
-          </div>
+        <div>
+          <label for="profilejkr" class="uploadButton primaryButton">
+             Upload
+          </label>
         </div>
         <input type="file" id="profilejkr" name="profilejkr" accept=".jkr, .bin" />
+        <label for="resetButton" id="resetButtonFacade" class="resetButton dangerButton">Reset</label>
+        <input type="button" id="resetButton" value="Reset" />
+        <label for="confirmResetButton" id="confirmResetButtonFacade" class="resetButton dangerButton" hidden>Confirm Reset</label>
+        <input type="button" id="confirmResetButton" value="Confirm Reset" hidden/>
       </fieldset>
     </div>
     <div class="options">
