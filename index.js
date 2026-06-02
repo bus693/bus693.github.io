@@ -347,7 +347,7 @@ function initImageDisplay() {
 }
 
 function _updateImageDisplay(profileName, deckUsage) {
-  document.getElementById("profileName").innerHTML = profileName;
+  document.getElementById("profileName").textContent = profileName;
   loadWins(getDeckStats(deckUsage));
 }
 
@@ -388,9 +388,9 @@ function loadWins(deckStats) {
   deckNames.forEach(deckName => {
     const deck = deckStats[deckName] === undefined ? defaultDeckStats : deckStats[deckName];
     const deckSelector = `.deck-${deckName}`;
-    document.querySelector(`${deckSelector} .deckPercent`).innerHTML = deck.percent;
-    document.querySelector(`${deckSelector} .deckWins`).innerHTML = deck.wins;
-    document.querySelector(`${deckSelector} .deckRatio`).innerHTML = deck.ratio;
+    document.querySelector(`${deckSelector} .deckPercent`).textContent = deck.percent;
+    document.querySelector(`${deckSelector} .deckWins`).textContent = deck.wins;
+    document.querySelector(`${deckSelector} .deckRatio`).textContent = deck.ratio;
     const stats = document.querySelector(`${deckSelector} .stats`);
     ranks.forEach((rank) => {
       stats.classList.toggle(rank, rank == `rank-${deck.rank}`);
@@ -467,6 +467,6 @@ confirmResetButton.addEventListener("click", () => {
   confirmResetButtonFacade.hidden = true;
 });
 
-document.getElementById("today").innerHTML =
+document.getElementById("today").textContent =
   `${new Date().toLocaleDateString("en-CA")}`;
 
