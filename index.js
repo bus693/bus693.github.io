@@ -37,10 +37,22 @@ async function updateImageDisplay() {
   const jkrLua = await response.text();
   const jkr = rawToJSON(jkrLua);
 
-  document.getElementById("profileName").innerHTML = jkr.name;
+  localStorage.setItem("profilejkr", JSON.stringify(jkr));
 
-  const deckStats = getDeckStats(jkr.deck_usage);
-  loadWins(deckStats);
+  _updateImageDisplay(jkr.name, jkr.deck_usage);
+}
+
+function initImageDisplay() {
+  const jkr = localStorage.getItem("profilejkr") === null ? undefined : JSON.parse(localStorage.getItem("profilejkr"));
+  if (jkr === undefined) {
+    return;
+  }
+  _updateImageDisplay(jkr.name, jkr.deck_usage);
+}
+
+function _updateImageDisplay(profileName, deckUsage) {
+  document.getElementById("profileName").innerHTML = profileName;
+  loadWins(getDeckStats(deckUsage));
 }
 
 function getDeckStats(deckUsage) {
@@ -92,6 +104,7 @@ function loadWins(deckStats) {
 
 const profilejkr = document.getElementById("profilejkr");
 profilejkr.addEventListener("change", updateImageDisplay);
+initImageDisplay();
 
 const displayOptions = document.getElementById("displayOptions");
 displayOptions.addEventListener("change", setDisplayOption);
