@@ -460,6 +460,7 @@ resetButton.addEventListener("click", () => {
 confirmResetButton.addEventListener("click", () => {
   localStorage.removeItem("profilejkr");
   initImageDisplay();
+  profilejkr.value = "";
   resetButton.hidden = false;
   resetButtonFacade.hidden = false;
   confirmResetButton.hidden = true;
