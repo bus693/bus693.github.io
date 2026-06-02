@@ -342,6 +342,11 @@ label[hidden] {
   color: white;
 }
 
+.backToTopButtonContainer {
+  display: flex;
+  margin: 0 10px;
+}
+
 .creditsBar {
   margin-top: 10px;
 }
