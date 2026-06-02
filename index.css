@@ -207,6 +207,10 @@ body {
   overflow-wrap: break-word;
 }
 
+.tooltip {
+  color: white;
+}
+
 .fileLocation, .keyboardShortcut {
   color: white;
 }
