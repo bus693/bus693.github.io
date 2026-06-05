@@ -403,13 +403,18 @@ profilejkr.addEventListener("change", updateImageDisplay);
 initImageDisplay();
 
 const displayOptions = document.getElementById("displayOptions");
-displayOptions.addEventListener("change", setDisplayOption);
+displayOptions.addEventListener("change", event => setDisplayOption(event.target.value));
+const savedDisplayOption = localStorage.getItem("displayOption");
+if (savedDisplayOption && savedDisplayOption !== displayOptions.elements.display.value) {
+  displayOptions.elements.display.value = savedDisplayOption;
+  setDisplayOption(savedDisplayOption);
+}
 
-function setDisplayOption(event) {
+function setDisplayOption(value) {
   let centered = false;
   let showWins = false;
   let showRatio = false;
-  switch (event.target.value) {
+  switch (value) {
     case "clean":
       centered = true;
       showWins = false;
@@ -445,6 +450,8 @@ function setDisplayOption(event) {
       node.classList.remove("centered"),
     );
   }
+
+  localStorage.setItem("displayOption", value);
 }
 
 const resetButton = document.getElementById("resetButton");

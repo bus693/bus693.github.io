@@ -187,24 +187,25 @@
       </fieldset>
     </div>
     <div class="options">
-      <fieldset id="displayOptions">
-        <legend>Display Options</legend>
+      <form id="displayOptions">
+        <fieldset>
+          <legend>Display Options</legend>
+          <div>
+            <input type="radio" id="clean" name="display" value="clean" />
+            <label for="clean">Clean</label>
+          </div>
 
-        <div>
-          <input type="radio" id="clean" name="display" value="clean" />
-          <label for="clean">Clean</label>
-        </div>
+          <div>
+            <input type="radio" id="wins" name="display" value="wins" checked />
+            <label for="wins">Wins</label>
+          </div>
 
-        <div>
-          <input type="radio" id="wins" name="display" value="wins" checked />
-          <label for="wins">Wins</label>
-        </div>
-
-        <div>
-          <input type="radio" id="ratio" name="display" value="ratio" />
-          <label for="ratio">Ratio</label>
-        </div>
-      </fieldset>
+          <div>
+            <input type="radio" id="ratio" name="display" value="ratio" />
+            <label for="ratio">Ratio</label>
+          </div>
+        </fieldset>
+      </form>
     </div>
   </div>
   <div id="profileLocationBar" class="profileLocationBar bar">
