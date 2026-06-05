@@ -1,5 +1,9 @@
 import { rawToJSON } from './lib/balatro-save-loader/loading.js';
 
+if (location.host.match(/^localhost:[0-9]+$/)) {
+  document.title += " (dev)"
+}
+
 function getCount(n) {
   if (n === undefined) {
     return 0;
