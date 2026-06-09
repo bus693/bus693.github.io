@@ -59,7 +59,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 25
+          "NOSTRING_8": 2
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -81,7 +81,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 80
+          "NOSTRING_8": 38
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -91,7 +91,7 @@ function initImageDisplay() {
           "NOSTRING_5": 0,
           "NOSTRING_6": 0,
           "NOSTRING_7": 0,
-          "NOSTRING_8": 16
+          "NOSTRING_8": 12
         }
       },
       "b_yellow": {
@@ -103,7 +103,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 61
+          "NOSTRING_8": 13
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -113,7 +113,7 @@ function initImageDisplay() {
           "NOSTRING_5": 0,
           "NOSTRING_6": 0,
           "NOSTRING_7": 0,
-          "NOSTRING_8": 23
+          "NOSTRING_8": 12
         }
       },
       "b_green": {
@@ -125,7 +125,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 25
+          "NOSTRING_8": 2
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -147,7 +147,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 6
+          "NOSTRING_8": 0
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -169,7 +169,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 43
+          "NOSTRING_8": 4
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -191,7 +191,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 22
+          "NOSTRING_8": 3
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -201,7 +201,7 @@ function initImageDisplay() {
           "NOSTRING_5": 0,
           "NOSTRING_6": 0,
           "NOSTRING_7": 0,
-          "NOSTRING_8": 29
+          "NOSTRING_8": 9
         }
       },
       "b_abandoned": {
@@ -213,7 +213,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 46
+          "NOSTRING_8": 4
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -243,7 +243,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 29
+          "NOSTRING_8": 7
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -265,7 +265,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 33
+          "NOSTRING_8": 3
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -287,7 +287,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 37
+          "NOSTRING_8": 3
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -309,7 +309,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 11
+          "NOSTRING_8": 1
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -331,7 +331,7 @@ function initImageDisplay() {
           "NOSTRING_5": 1,
           "NOSTRING_6": 1,
           "NOSTRING_7": 1,
-          "NOSTRING_8": 21
+          "NOSTRING_8": 3
         },
         "losses": {
           "NOSTRING_1": 0,
@@ -341,7 +341,7 @@ function initImageDisplay() {
           "NOSTRING_5": 0,
           "NOSTRING_6": 0,
           "NOSTRING_7": 0,
-          "NOSTRING_8": 34
+          "NOSTRING_8": 7
         }
       },
     }
