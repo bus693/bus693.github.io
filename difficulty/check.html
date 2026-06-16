@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Balatro Difficulty Checker</title>
+<style>
+body {
+  background-color: black;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#progressContainer, #resultContainer {
+  display: none;
+}
+
+#progressContainer.open, #resultContainer.open {
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-columns: 1fr;
+  margin: 10px 0;
+}
+
+#progressBar, img {
+  width: calc(min(95vw, 600px));
+}
+
+a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+<h1>Balatro Difficulty Checker</h1>
+<p>Is this seed beatable?</p>
+<input type="text" class="custom-textbox" placeholder="Ex. ARGLZBRA">
+<button type="button" id="check">Check</button>
+<div id="progressContainer">
+  <img src="https://i.pinimg.com/originals/eb/eb/3a/ebeb3aaafae5ba36d077bff0e4ddc56b.gif" />
+  <progress
+  id="progressBar"
+  title="Checking..."
+  max="100"
+  value="1"></progress>
+</div>
+<div id="resultContainer">
+  &#9989; Yes, it's beatable.
+  <a href="https://discord.com/invite/balatro" target="_blank">Help</a>
+</div>
+<script>
+document.getElementById("check").addEventListener('click', check);
+
+function check() {
+  const progressContainer = document.getElementById("progressContainer");
+  progressContainer.classList.add("open");
+  const progressBar = document.getElementById("progressBar");
+  progressBar.value = 0;
+  const resultContainer = document.getElementById("resultContainer");
+  resultContainer.classList.remove("open");
+  
+  const intervalId = setInterval(() => { 
+    progressBar.value = progressBar.value + Math.floor(Math.random() * 10) + 1;
+    console.log(progressBar.value);
+    if (progressBar.value >= 100) {
+      clearInterval(intervalId);
+      result();
+    }
+  }, 200);
+}
+
+function result() {
+  const progressContainer = document.getElementById("progressContainer");
+  progressContainer.classList.remove("open");
+  const resultContainer = document.getElementById("resultContainer");
+  resultContainer.classList.add("open");
+}
+</script>
+</body>
+</html>
+
