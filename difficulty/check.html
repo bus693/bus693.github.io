@@ -1,11 +1,50 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Balatro Difficulty Checker</title>
+<meta name="description" content="Is your seed beatable?">
+<meta property="og:title" content="Balatro Difficulty Checker">
+<meta property="og:description" content="Is your seed beatable?">
+<meta property="og:image" content="https://busdash.fyi/difficulty/opengraph.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Balatro Difficulty Checker">
+<meta name="twitter:description" content="Is your seed beatable?">
+<meta name="twitter:image:type" content="image/png">
+<meta name="twitter:image:width" content="1200">
+<meta name="twitter:image:height" content="630">
+<meta name="twitter:image" content="https://busdash.fyi/difficulty/opengraph.png">
+<link rel="icon" href="/favicon.svg" />
+<link
+  rel="preload"
+  href="/balatro.ttf"
+  as="font"
+  crossorigin=""
+  type="font/ttf"
+/>
+<link rel="prefetch" href="balatrocards.png" fetchpriority="high" />
 <style>
+@font-face {
+  font-family: 'Balatro';
+  src: url('/balatro.ttf')
+    format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background-color: black;
   color: white;
   font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-family: Balatro, Helvetica, Arial, sans-serif;
 }
 
 #progressContainer, #resultContainer {
