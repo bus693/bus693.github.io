@@ -41,10 +41,25 @@ body {
   background-color: black;
   color: white;
   font-family: Helvetica, Arial, sans-serif;
+  padding: 5px;
 }
 
-h1 {
+@media (min-width: 480px) {
+  body {
+    padding: 10px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
   font-family: Balatro, Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+#resultContainer p {
+  margin: 0;
 }
 
 #progressContainer, #resultContainer {
@@ -67,6 +82,25 @@ a {
   font-weight: bold;
   text-decoration: none;
 }
+
+iframe {
+  width: calc(min(95vw, 960px));
+  height: calc(min(50vh, 600px));
+}
+
+img.screen, #progressContainer button, #fastModeContainer button, #resultContainer button {
+  width: calc(min(95vw, 600px));
+}
+
+img.joke {
+  width: calc(min(95vw, 200px));
+  aspect-ratio: calc(1/1.338);
+}
+
+.hidden {
+  display: none;
+}
+
 </style>
 </head>
 <body>
@@ -81,25 +115,84 @@ a {
   title="Checking..."
   max="100"
   value="1"></progress>
+  <button id="fastMode" class="hidden">Fast Mode</button>
+</div>
+<div id="fastModeContainer" class="hidden">
+  <img src="MWXHHMKUNSTY.jpeg" class="screen" />
+  <p>The bear will be sad. :( Are you sure you want to turn on fast mode?</p>
+  <button id="iHateBears" class="hidden">I Hate Bears</button>
+  <button id="saveBear">Save The Bears</button>
+  <button id="askLater">Ask Me Again Later</button>
 </div>
 <div id="resultContainer">
-  &#9989; Yes, it's beatable.
-  <a href="https://discord.com/invite/balatro" target="_blank">Help</a>
+  <p>&#9989; Yes, it's beatable.</p>
+  <p><a href="https://discord.com/invite/balatro" target="_blank">Get Help</a>
+</div>
+<div>
+<p><i>Times checked: <span id="checkedTimeContainer">0</span></i></p>
+<p><button id="saveBear2" class="hidden">Save The Bears</button></p>
 </div>
 <script>
-document.getElementById("check").addEventListener('click', check);
+let triggeredFastModeModal = false;
 
+init();
+function init() {
+  // Write counter to page
+  const rawCheckedTimes = JSON.parse(localStorage.getItem("checkedTimes"));
+  let checkedTimes = rawCheckedTimes === null ? 0 : rawCheckedTimes;
+  document.getElementById("checkedTimeContainer").innerText = checkedTimes;
+
+  // Check if we need to show save bear button
+  if (localStorage.getItem("fastMode") !== null)  {
+    document.getElementById("saveBear2").classList.remove("hidden");
+  }
+}
+
+document.getElementById("check").addEventListener('click', check);
 function check() {
+  // Counter
+  const rawCheckedTimes = JSON.parse(localStorage.getItem("checkedTimes"));
+  let checkedTimes = rawCheckedTimes === null ? 0 : rawCheckedTimes;
+  checkedTimes = checkedTimes + 1;
+  localStorage.setItem("checkedTimes", checkedTimes);
+  document.getElementById("checkedTimeContainer").innerText = checkedTimes;
+
+  // Reset fast mode modal if needed
+  triggeredFastModeModal = false;
+  if (!document.getElementById("fastModeContainer").classList.contains("hidden")) {
+    document.getElementById("fastModeContainer").classList.add("hidden");
+  }
+
+  // Skip mode active, just show the result
+  if (localStorage.getItem("fastMode") !== null) {
+    result();
+    return;
+  }
+
+  // See if we should show the fast mode button
+  const fastModeCounter = JSON.parse(localStorage.getItem("fastModeCounter"));
+  if (fastModeCounter === null) {
+    localStorage.setItem("fastModeCounter", 1);
+  } else if (fastModeCounter < 5) {
+    localStorage.setItem("fastModeCounter", fastModeCounter + 1);
+  } else {
+    document.getElementById("fastMode").classList.remove("hidden");
+  }
+
+  // Show progress container
   const progressContainer = document.getElementById("progressContainer");
   progressContainer.classList.add("open");
+
+  // Update progress bar
   const progressBar = document.getElementById("progressBar");
   progressBar.value = 0;
   const resultContainer = document.getElementById("resultContainer");
   resultContainer.classList.remove("open");
   
-  const intervalId = setInterval(() => { 
+  const intervalId = setInterval(() => {
     progressBar.value = progressBar.value + Math.floor(Math.random() * 10) + 1;
-    console.log(progressBar.value);
+    /* progressBar.value = 100; */
+    /* console.log(progressBar.value); */
     if (progressBar.value >= 100) {
       clearInterval(intervalId);
       result();
@@ -111,7 +204,45 @@ function result() {
   const progressContainer = document.getElementById("progressContainer");
   progressContainer.classList.remove("open");
   const resultContainer = document.getElementById("resultContainer");
-  resultContainer.classList.add("open");
+  if (!triggeredFastModeModal) {
+    resultContainer.classList.add("open");
+  }
+}
+
+document.getElementById("fastMode").addEventListener('click', fastMode);
+
+function fastMode() {
+  triggeredFastModeModal = true;
+  document.getElementById("progressContainer").classList.remove("open");
+  document.getElementById("fastModeContainer").classList.remove("hidden");
+}
+
+document.getElementById("saveBear").addEventListener('click', saveBear);
+function saveBear() {
+  localStorage.removeItem("fastModeCounter");
+  document.getElementById("fastMode").classList.add("hidden");
+  document.getElementById("fastModeContainer").classList.add("hidden");
+}
+
+document.getElementById("saveBear2").addEventListener('click', saveBear2);
+function saveBear2() {
+  document.getElementById("saveBear2").classList.add("hidden");
+  localStorage.removeItem("fastMode");
+  localStorage.removeItem("fastModeCounter");
+}
+
+document.getElementById("askLater").addEventListener('click', askLater);
+function askLater() {
+  document.getElementById("fastModeContainer").classList.add("hidden");
+  document.getElementById("askLater").classList.add("hidden");
+  document.getElementById("iHateBears").classList.remove("hidden");
+}
+
+document.getElementById("iHateBears").addEventListener('click', iHateBears);
+function iHateBears() {
+  document.getElementById("fastModeContainer").classList.add("hidden");
+  localStorage.setItem("fastMode", "true");
+  document.getElementById("saveBear2").classList.remove("hidden");
 }
 </script>
 </body>
